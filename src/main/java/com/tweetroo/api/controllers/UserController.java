@@ -35,7 +35,12 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<@NonNull UserModel> createUser(@RequestBody @NonNull UserModel user) {
+    public ResponseEntity<UserModel> createUser(@RequestBody UserModel user) {
+
+        if (userRepository.existsByUsername(user.getUsername())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+
         try {
             UserModel newUser = userRepository.save(user);
             return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
