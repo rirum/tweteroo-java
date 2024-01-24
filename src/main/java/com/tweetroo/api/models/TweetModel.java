@@ -28,7 +28,7 @@ public class TweetModel {
     private String text;
 
     @ManyToOne // Relação muitos para um com a tabela de usuários
-    @JoinColumn(name = "user_id", nullable = false) // Nome da coluna de chave estrangeira
+    @JoinColumn(name = "userId", nullable = false) // Nome da coluna de chave estrangeira
     private UserModel user;
 
 }
