@@ -15,12 +15,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity // Indica ao banco que isso é uma entidade a ser mapeada
-@Table(name = "tb_users") // Permite escolher o nome da tabela
+@Table(name = "users") // Permite escolher o nome da tabela
 
 public class UserModel {
 
     @Id // Identifica que é o id, a chave primária da tabela
-    @GeneratedValue(strategy = GenerationType.AUTO) // Estratégia gerar IDs
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Estratégia gerar IDs
     private Long id;
 
     @Column(nullable = false) // Coluna da tabela + constraints
